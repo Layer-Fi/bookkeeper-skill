@@ -2,9 +2,33 @@
 
 Connect to the Layer Bookkeeper MCP server to enable bookkeeping capabilities in Claude.
 
-## Claude Desktop Configuration
+## Quick Setup (Recommended)
 
-Add to your Claude Desktop MCP configuration:
+Run this command in your terminal, replacing `YOUR_API_KEY` with the key provided by Layer:
+
+```bash
+claude mcp add layer-bookkeeper --transport sse --url https://bookkeeping-mcp.layerfi.com/sse --header "X-API-Key: YOUR_API_KEY"
+```
+
+Then restart Claude Desktop.
+
+## Getting Your API Key
+
+Contact Layer to obtain your API key for the hosted MCP server.
+
+## Verifying Connection
+
+After setup:
+
+1. Restart Claude Desktop
+2. Start a new conversation
+3. Ask: "List available Layer businesses"
+
+If configured correctly, Claude will query the MCP server and return your businesses.
+
+## Manual Setup (Alternative)
+
+If the CLI command doesn't work, manually edit your Claude Desktop config:
 
 **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
@@ -25,10 +49,6 @@ Add to your Claude Desktop MCP configuration:
 }
 ```
 
-## Getting Access
-
-Contact Layer to obtain your API key for the hosted MCP server.
-
 ## What's Included
 
 Once connected, you'll have access to:
@@ -39,16 +59,6 @@ Once connected, you'll have access to:
 - **Transaction Categorization** - Categorize bank transactions
 - **Business Management** - List and manage Layer businesses
 
-## Verifying Connection
-
-After configuring Claude Desktop:
-
-1. Restart Claude Desktop
-2. Start a new conversation
-3. Ask: "List available Layer businesses"
-
-If configured correctly, Claude will query the MCP server and return your businesses.
-
 ## Troubleshooting
 
 ### "Connection refused" or timeout errors
@@ -57,10 +67,16 @@ If configured correctly, Claude will query the MCP server and return your busine
 - Ensure you have internet connectivity
 
 ### "Unauthorized" errors
-- Double-check your X-API-Key header
+- Double-check your API key
 - Contact Layer if your key may have expired
 
 ### MCP server not appearing in Claude
-- Ensure the JSON syntax is valid (no trailing commas)
 - Restart Claude Desktop completely
+- Run `claude mcp list` to verify it was added
 - Check Claude Desktop logs for errors
+
+## Removing the MCP Server
+
+```bash
+claude mcp remove layer-bookkeeper
+```
