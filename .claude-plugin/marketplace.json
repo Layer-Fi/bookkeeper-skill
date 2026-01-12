@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "layer-bookkeeper",
-      "source": "..",
+      "source": "./",
       "description": "AI-assisted bookkeeping using the Layer Finance API. Use for journal entries, financial reports, and transaction categorization.",
       "version": "1.0.0",
       "author": {
