@@ -1,30 +1,32 @@
-# Layer Bookkeeper Skill for Claude Code
+# Layer Bookkeeper Plugin for Claude Code
 
-A Claude Code skill that enables AI-assisted bookkeeping using the Layer Finance API.
+A Claude Code plugin that enables AI-assisted bookkeeping using the Layer Finance API.
 
 ## Installation
 
-### Claude Code CLI
-
 ```bash
-claude skill add https://github.com/Layer-Fi/bookkeeper-skill
+claude plugin add https://github.com/Layer-Fi/bookkeeper-skill
 ```
 
-### Manual Installation
+## Setup
 
-Copy the skill files to your Claude skills directory:
-- `SKILL.md` - Main skill definition
-- `accounts-reference.md` - Account types and stable names
-- `setup.md` - MCP server connection guide
+After installing the plugin, connect to the Layer MCP server:
 
-## Prerequisites
+```bash
+claude mcp add layer-bookkeeper --transport sse --url https://bookkeeping-mcp.layerfi.com/sse --header "X-API-Key: YOUR_API_KEY"
+```
 
-1. **MCP Server Access** - You need an API key for the Layer Bookkeeper MCP server
-2. **Claude Desktop** - Configure the MCP connection (see `setup.md`)
+Then restart Claude Desktop.
 
-## What This Skill Does
+See [setup.md](skills/bookkeeper/setup.md) for detailed instructions.
 
-The Layer Bookkeeper skill teaches Claude how to:
+## Getting Your API Key
+
+Contact Layer Finance to obtain your API key for the hosted MCP server.
+
+## What This Plugin Does
+
+The Layer Bookkeeper plugin teaches Claude how to:
 
 - Create and manage journal entries with proper accounting principles
 - Navigate the chart of accounts using stable names
@@ -35,22 +37,22 @@ The Layer Bookkeeper skill teaches Claude how to:
 
 ## Key Features
 
-### Two-Step Change Protocol
-All mutations require explicit user approval before execution.
-
-### Graphical Previews
-Journal entries and account changes are displayed in clear, readable formats.
-
-### Before/After Reporting
-Financial impact is shown after each change.
+- **Two-Step Change Protocol** - All mutations require explicit user approval
+- **Graphical Previews** - Journal entries displayed in clear, readable formats
+- **Before/After Reporting** - Financial impact shown after each change
+- **Bulk Operations** - Idempotent batch processing with external IDs
 
 ## Files
 
-| File | Description |
-|------|-------------|
-| `SKILL.md` | Core skill instructions and workflows |
-| `accounts-reference.md` | Account identifiers, stable names, debit/credit rules |
-| `setup.md` | MCP server connection configuration |
+```
+.claude-plugin/
+└── plugin.json           # Plugin manifest
+
+skills/bookkeeper/
+├── SKILL.md              # Core skill instructions
+├── accounts-reference.md # Account identifiers and stable names
+└── setup.md              # MCP server setup guide
+```
 
 ## Support
 

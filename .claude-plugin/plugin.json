@@ -1,0 +1,13 @@
+{
+  "name": "layer-bookkeeper",
+  "version": "1.0.0",
+  "description": "AI-assisted bookkeeping using the Layer Finance API. Use for journal entries, financial reports, and transaction categorization.",
+  "author": {
+    "name": "Layer Finance",
+    "url": "https://layerfi.com"
+  },
+  "homepage": "https://github.com/Layer-Fi/bookkeeper-skill",
+  "repository": "https://github.com/Layer-Fi/bookkeeper-skill",
+  "license": "MIT",
+  "keywords": ["bookkeeping", "accounting", "layer", "journal-entries", "finance"]
+}

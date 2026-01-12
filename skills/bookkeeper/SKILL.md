@@ -1,6 +1,7 @@
 ---
 name: bookkeeper
 description: Manage bookkeeping tasks using the Layer API. Use for journal entries, account management, financial reports (P&L, balance sheet), ledger accounts, and categorizing transactions. Invoke when users mention accounting, bookkeeping, journal entries, chart of accounts, P&L, profit and loss, balance sheet, or financial reports.
+version: 1.0.0
 ---
 
 # Layer Bookkeeper
